@@ -9,18 +9,22 @@ double numMonthlyDis;
 double numAnnualInt;
 double numStartAmount;
 
+
+// Check Values, exit if not numeric
 double CheckValue() {
     double  numVal;
     try {
         cin >> numVal;
+        // correct entry for the vaiable
         if (!cin.good()) {
             throw 1;
         }
-
+        // Greater than zero
         if (numVal < 0) {
             throw 3;
         }
     }
+    // Display error
     catch (int a) {
         cout << "Invalid Entry";
         cin.clear();
@@ -31,6 +35,7 @@ double CheckValue() {
 }
 
 
+// Print Menu Dialog
 void FunMenu() {
     cout << "**********************************" << '\n';
     cout << "*********** Data Input ***********" << '\n';
@@ -46,6 +51,7 @@ void FunMenu() {
     cout << "**********************************" << '\n';
 }
 
+// Print a line of the table
 void PrintFunction(int numWidth, int numMonth, double numOpenBal, double numDeposit, double numTotal, double numIntTotal, double numClosingBal) {
     const char txtChar = ' ';
     cout << fixed;
@@ -59,6 +65,7 @@ void PrintFunction(int numWidth, int numMonth, double numOpenBal, double numDepo
 
 }
 
+// Print Title
 void FunTitle(int numWidth, string txtWith) {
     const char txtChar = ' ';
     cout << left << setw(110) << setfill('=') << '=';
@@ -66,7 +73,7 @@ void FunTitle(int numWidth, string txtWith) {
     cout << " Balance and Interest " << txtWith << " Additional Monthly Deposits" << '\n';
     cout << left << setw(110) << setfill('-') << '-';
     cout << '\n';
-
+    // Title Table
     cout << left << setw(10) << setfill(txtChar) << "Month";
     cout << left << setw(numWidth) << setfill(txtChar) << "Opening Balance";
     cout << left << setw(numWidth) << setfill(txtChar) << "Monthly Deposit";
@@ -76,6 +83,7 @@ void FunTitle(int numWidth, string txtWith) {
     cout << '\n';
 }
 
+// Create Table
 void FunCal(int numWidth, double numMonth, double numOpenBal, double numIntr, double numDeposit) {
     double numTotal;
     double numIntTotal;
@@ -88,11 +96,11 @@ void FunCal(int numWidth, double numMonth, double numOpenBal, double numIntr, do
         PrintFunction(numWidth, i, numOpenBal, numDeposit, numTotal, numIntTotal, numClosingBal);
         numOpenBal = numClosingBal;
     }
-    // 
-
 }
 
-void txtOutput() {
+// Create Output
+void FunOutput() {
+    // Variables
     double numMonth;
     double numOpenBal;
     double numDeposit;
@@ -100,21 +108,19 @@ void txtOutput() {
     const char txtChar = ' ';
     const int numWidth = 20;
 
-
+    // Do Math
     numMonth = numYears * 12;
     numOpenBal = numStartAmount;
     numIntr = ((numAnnualInt / 100) / 12);
     numDeposit = numMonthlyDis;
 
-    // Without monthly deposit
+    // Build table Without monthly deposit
     FunTitle(numWidth, "Without");
     FunCal(numWidth, numMonth, numOpenBal, numIntr, 0);
 
-    // With Monthly Deposit
+    // Build table With Monthly Deposit
     FunTitle(numWidth, "With");
     FunCal(numWidth, numMonth, numOpenBal, numIntr, numDeposit);
-
-
 }
 
 void LoopCode() {
@@ -122,7 +128,7 @@ void LoopCode() {
 
     while (true) {
         FunMenu();
-        txtOutput();
+        FunOutput();
 
         cout << '\n' << '\n';
         cout << left << setw(110) << setfill('=') << '=';
@@ -130,10 +136,11 @@ void LoopCode() {
         cout << "Type y to Calculate again" << '\n';
         cout << "Type any other key to exit" << '\n';
         cin >> txtStop;
+
+        // exit if anything other than y typed
         if (txtStop != "y") {
             break;
         }
-
     }
 }
 
