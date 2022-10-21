@@ -1,11 +1,21 @@
 Summarize the project and what problem it was solving.
-  
+    This program calculates compound interests from a original deposit over a length of time. 
+    Then the program calculates the compound interest with a month deposit 
+
 What did you do particularly well?
-  
+    I think the program used Object Oriented design well, the program is modular and does not repeat itself
+    
 Where could you enhance your code? How would these improvements make your code more efficient, secure, and so on?
+    The code could have used more comments
   
-Which pieces of the code did you find most challenging to write, and how did you overcome this? What tools or resources are you adding to your support network?
+Which pieces of the code did you find most challenging to write, and how did you overcome this? What tools or resources are 
+you adding to your support network?
+     The code was not particular difficult to write, I did keep optimizing the code, so there were many revisions.
 
 What skills from this project will be particularly transferable to other projects or course work?
+    Utilizing multiple languages in a single project I think will be key in my career, 
+    using the best language for the task at hand make fast and reliable code. 
 
 How did you make this program maintainable, readable, and adaptable?
+    By creating a git hub repository, I was able to work between multiple computers 
+    and still maintain version control
